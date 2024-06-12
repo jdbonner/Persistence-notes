@@ -22,14 +22,18 @@ reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 https://os.cybbh.io/public/os/latest/004_windows_registry/primer.html
 # window services
 
+
 # sysinternals
+
 
 
 
 
 # linux process
 
-Cat into them looking anything weirdcat
+Cat into them looking anything weird 
+Linux is file based
+
 
 /etc/rc*d
 /etc/init This will boot system
@@ -44,6 +48,7 @@ Look for services in units when looking for persistence
 /etc/environment
 
 Look into crontab
+
 
 
 
