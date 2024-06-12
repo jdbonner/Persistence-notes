@@ -18,3 +18,35 @@ PS C:\Users\andy.dwyer> get-content $PsHome\Profile.ps1
 # I am definitely not the malware
 ```
 # Windows Registry 
+reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+https://os.cybbh.io/public/os/latest/004_windows_registry/primer.html
+# window services
+
+# sysinternals
+
+
+
+
+# linux process
+
+Cat into them looking anything weirdcat
+
+/etc/rc*d
+/etc/init This will boot system
+/etc/inittab **Important to look into for files**
+/etc/systemd/*
+/lib/systemd/system/*
+/run/systemd/generation/*
+Look for services in units when looking for persistence
+/etc/profile
+/etc/bash.bashrc
+/etc/profile.d
+/etc/environment
+
+Look into crontab
+
+
+
+
+
+
