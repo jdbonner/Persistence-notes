@@ -213,17 +213,20 @@ In SysV machines it is the /etc/init program. Then, init reads /etc/inittab to s
 
 The kernel spawns /usr/lib/systemd/system as the first process on the system. It then executes configurations starting at mounting the local file system to bringing the system to a desired state specified in the default target unit. Targets in systemd are like runlevels in SysV. The name of the default target is default.target and located in /lib/systemd/system.
 
-/etc/systemd/*
-SUMMARY:
+https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files
+
+
+/etc/systemd/system/*
+SUMMARY:If you wish to modify the way that a unit functions, the best location to do so is within the /etc/systemd/system
 
 
 
 /lib/systemd/system/*
-SUMMARY:
+SUMMARY:The system’s copy of unit files are generally kept in the /lib/systemd/system directory. 
 
 
 /run/systemd/generation/*
-SUMMARY:  
+SUMMARY: There is also a location for run-time unit definitions at /run/systemd/system 
 
 Service units create processes when called by target units. They, much like target units, have value=data pairs that determine what the unit does.
 # Post boot
@@ -279,9 +282,13 @@ Operational Value
 Orphan Processes
  Zombie (Defunct) Processes pid once dead goes 1
 # Services
+Service units create processes when called by target units. They, much like target units, have value=data pairs that determine what the unit does.
+
 sysv = student@linux-opstation-grkv:~$ service <servicename> status/start/stop/restart
 
 sysd = systemctl
+Service units create processes when called by target units. They, much like target units, have value=data pairs that determine what the unit does.
+
 The basic object that systemd manages and acts upon is a “unit”. Units can be of many types, but the most common type is a “service” (indicated by a unit file ending in .service). To manage services on a systemd enabled server, our main tool is the systemctl command.
 
 
