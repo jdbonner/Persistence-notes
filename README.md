@@ -185,6 +185,7 @@ Ph'nglui mglw'nafh Cthulhu
 
 
 # Boot
+In SysV machines it is the /etc/init program.
 Then, init reads /etc/inittab to start creating processes in groups called Run Levels. The processes that each Run Level starts are defined in /etc/rc*.d
 
 /etc/rc*d 
@@ -197,6 +198,11 @@ SUMMARY:This will boot system
 
 /etc/inittab **Important to look into for files**
 SUMMARY:starts processes
+
+Systemd is the modern initialization method. It starts with the kernel spawning /sbin/init which is symbolically linked to /lib/systemd/system. systemd interacts with flat configuration files called units. There are many types, but the target and service units determine system initializat
+The kernel spawns /usr/lib/systemd/system as the first process on the system. It then executes configurations starting at mounting the local file system to bringing the system to a desired state specified in the default target unit. Targets in systemd are like runlevels in SysV. The name of the default target is default.target and located in /lib/systemd/system.
+
+
 # Systemd or SystemV
 ```
 Identify which of your Linux machines is using SysV Initialization.
