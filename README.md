@@ -1,4 +1,6 @@
 # Persistence-notes
+https://hadess.io/the-art-of-linux-persistence/
+https://hadess.io/the-art-of-windows-persistence/
 for test
 # Windows persistence checklist 
 # Powershell profile
