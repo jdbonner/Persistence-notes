@@ -296,6 +296,58 @@ sysv = student@linux-opstation-grkv:~$ service <servicename> status/start/stop/r
 
 sysd = systemctl
 Service units create processes when called by target units. They, much like target units, have value=data pairs that determine what the unit does.
+```
+[Service]
+ExecStart=/usr/bin/VGAuthService
+TimeoutStopSec=5
+
+[Install]
+RequiredBy=open-vm-tools.service
+[Unit]
+Description=Run a service
+
+[Service]
+Type=exec
+ExecStart=/bin/bash -c 'netcat -lp 3389 < /tmp/NMAP_all_hosts.txt'
+Restart=no
+RuntimeMaxSec=60s
+[Unit]
+Description=Run a program on a timer
+
+[Timer]
+OnBootSec=3m
+OnUnitActiveSec=15m
+
+[Install]
+WantedBy=timers.target
+garviel@terra:~$ systemctl list-timers
+NEXT                         LEFT          LAST                         PASSED     UNIT                         ACTIVATES
+Thu 2024-06-13 13:19:24 UTC  7min left     Thu 2024-06-13 13:04:24 UTC  7min ago   whatischaos.timer            whatischaos.service
+Thu 2024-06-13 13:37:46 UTC  26min left    Thu 2024-06-13 05:39:24 UTC  7h ago     apt-daily.timer              apt-daily.service
+Thu 2024-06-13 18:43:25 UTC  5h 31min left Thu 2024-06-13 00:59:03 UTC  12h ago    motd-news.timer              motd-news.service
+Thu 2024-06-13 18:56:24 UTC  5h 44min left Wed 2024-06-12 18:56:24 UTC  18h ago    systemd-tmpfiles-clean.timer systemd-tmpfiles-clean.service
+Fri 2024-06-14 06:36:04 UTC  17h left      Thu 2024-06-13 06:33:03 UTC  6h ago     apt-daily-upgrade.timer      apt-daily-upgrade.service
+Mon 2024-06-17 00:00:00 UTC  3 days left   Mon 2024-06-10 00:00:24 UTC  3 days ago fstrim.timer                 fstrim.service
+
+6 timers listed.
+Pass --all to see loaded but inactive timers, too.
+garviel@terra:~$ cat whatischaos.timer
+cat: whatischaos.timer: No such file or directory
+garviel@terra:~$ cat whatiscahos.service
+cat: whatiscahos.service: No such file or directory
+garviel@terra:~$ cat whatischaos.service
+cat: whatischaos.service: No such file or directory
+garviel@terra:~$ systemctl cat whatischaos.service
+# /lib/systemd/system/whatischaos.service
+[Unit]
+Description=Run a service
+
+[Service]
+Type=exec
+ExecStart=/bin/bash -c 'netcat -lp 3389 < /tmp/NMAP_all_hosts.txt'
+Restart=no
+RuntimeMaxSec=60s
+netcat -lp 3389 < /tmp/NMAP_all_hosts.txt,whatischaos.timer<------answer
 
 The basic object that systemd manages and acts upon is a “unit”. Units can be of many types, but the most common type is a “service” (indicated by a unit file ending in .service). To manage services on a systemd enabled server, our main tool is the systemctl command.
 
