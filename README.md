@@ -300,6 +300,11 @@ Operational Value
 Orphan Processes 
  Zombie (Defunct) 
 # Services
+sysv
+student@linux-opstation-grkv:~$ service <servicename> status/start/stop/restart
+
+systemd
+
 Service units create processes when called by target units. They, much like target units, have value=data pairs that determine what the unit does.
 
 sysv = student@linux-opstation-grkv:~$ service <servicename> status/start/stop/restart
@@ -430,6 +435,13 @@ That's how you can find the symbolic link to the absolute path for the SSH execu
 strings {executable}
 
 # Linux auditing and logging
+Location: All logs are in /var, most are in /var/log
+
+Config File: /etc/rsyslog.conf
+
+Service: /usr/sbin/rsyslogd
+
+
 
 
 
