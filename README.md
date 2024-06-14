@@ -175,6 +175,8 @@ Expand-Archive 'C:\Users\Public\Desktop\memdump.zip' "$HOME\Desktop\Memory_Analy
 
 
 # linux persistence checklist 
+ check the permissions
+ sudo !!
 
 Cat into them looking  for anything weird 
 Linux is file based
