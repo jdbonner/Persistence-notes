@@ -1,4 +1,4 @@
-# Persistence-notes
+c/profiles# Persistence-notes
 Windows 10.50.32.166 Linux 10.50.41.188
 
 **Im an incident responder**
